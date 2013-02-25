@@ -1,6 +1,6 @@
 {
   "name": "autofile-rm",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Remove file or set of files.",
   "main": "autofile.js",
   "scripts": {
@@ -17,7 +17,9 @@
     "rm",
     "remove",
     "delete",
-    "del"
+    "del",
+    "rimraf",
+    "glob"
   ],
   "author": "Indigo United",
   "license": "MIT",
