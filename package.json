@@ -1,0 +1,25 @@
+{
+  "name": "autofile-rm",
+  "version": "0.0.0",
+  "description": "Remove file or set of files.",
+  "main": "autofile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IU-Automaton/autofile-rm"
+  },
+  "keywords": [
+    "autofile",
+    "automaton",
+    "task",
+    "rm",
+    "remove",
+    "delete",
+    "del"
+  ],
+  "author": "Indigo United",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
