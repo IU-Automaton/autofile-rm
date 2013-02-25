@@ -1,6 +1,7 @@
+`automaton task` - http://indigounited.com/automaton
+
 rm
 ===
-`automaton task` - http://indigounited.com/automaton
 
 Remove file or set of files.
 
