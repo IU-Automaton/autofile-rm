@@ -9,7 +9,7 @@ module.exports = function (task) {
     task
     .id('rm')
     .name('Remove')
-    .description('Remove file or set of files.')
+    .description('Remove files and folders.')
     .author('Indigo United')
 
     .option('files', 'Which files should be removed. Accepts a filename and array of filenames. Also note that the filenames can be minimatch patterns.')

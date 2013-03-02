@@ -1,7 +1,7 @@
 {
   "name": "autofile-rm",
   "version": "0.0.0",
-  "description": "Remove file or set of files.",
+  "description": "Remove files and folders.",
   "main": "autofile.js",
   "scripts": {
     "test": "mocha -R spec"
