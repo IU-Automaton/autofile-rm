@@ -5,6 +5,7 @@ var expect    = require('expect.js'),
     isFile    = require('./util/is-file'),
     isDir     = require('./util/is-dir'),
     rimraf    = require('rimraf'),
+    rm        = require('../autofile'),
     automaton = require('automaton').create()
 ;
 
@@ -33,7 +34,7 @@ describe('rm', function () {
         // create file
         fs.writeFileSync(target + file, 'dummy');
 
-        automaton.run('rm', {
+        automaton.run(rm, {
             files: target + file
         }, function (err) {
             if (err) {
@@ -57,7 +58,7 @@ describe('rm', function () {
         // create dir3
         fs.mkdirSync(dir3);
 
-        automaton.run('rm', {
+        automaton.run(rm, {
             files: [dir2, dir3]
         }, function (err) {
             if (err) {
@@ -80,7 +81,7 @@ describe('rm', function () {
         // create file
         fs.writeFileSync(dir + file, 'dummy');
 
-        automaton.run('rm', {
+        automaton.run(rm, {
             files: target + '*'
         }, function (err) {
             if (err) {
@@ -103,7 +104,7 @@ describe('rm', function () {
         // create file
         fs.writeFileSync(file, 'dummy');
 
-        automaton.run('rm', {
+        automaton.run(rm, {
             files: target + '*',
             glob: {
                 dot: true
