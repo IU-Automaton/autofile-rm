@@ -1,11 +1,10 @@
-`automaton task` - http://indigounited.com/automaton
-
-rm
-===
+# Remove (rm)
 
 Remove file or set of files.
 
-*Indigo United 2013*
+*Indigo United*
+
+`automaton task` - http://indigounited.com/automaton
 
 ----------------------------------------
 
@@ -25,10 +24,11 @@ A concise description of how to use the task. If the task can accomplish a lot, 
 
 ### Options
 
-A list of the options that the task can get, and what they are for:
+Here's a list of the options that this task can take:
 
-- `option1`: This is option1!
-- `another_option`: This is another option.
+- **files***: Which files should be removed. Accepts a filename and array of filenames. Also note that the filenames can be minimatch patterns.
+- **glob***(null)*: The options to pass to glob (check https://npmjs.org/package/glob for details).
+
 
 ### Example
 
