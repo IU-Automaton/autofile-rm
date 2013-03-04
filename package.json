@@ -1,10 +1,10 @@
 {
   "name": "autofile-rm",
-  "version": "0.0.1",
-  "description": "Remove file or set of files.",
+  "version": "0.0.0",
+  "description": "Remove files and folders.",
   "main": "autofile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -R spec"
   },
   "repository": {
     "type": "git",
@@ -23,11 +23,15 @@
   ],
   "author": "Indigo United",
   "license": "MIT",
-  "readmeFilename": "README.md",
   "dependencies": {
-    "rimraf": "~2.1.4",
-    "mout": "~0.4.0",
     "async": "~0.2.5",
-    "glob": "~3.1.15"
+    "rimraf": "~2.1.4",
+    "glob": "~3.1.21"
+  },
+  "devDependencies": {
+    "automaton": "~0.1.4",
+    "expect.js": "~0.2.0",
+    "mocha": "~1.8.1",
+    "rimraf": "~2.1.4"
   }
 }

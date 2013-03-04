@@ -1,6 +1,6 @@
 # Remove (rm)
 
-Remove file or set of files.
+Remove files and folders.
 
 *Indigo United*
 

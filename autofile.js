@@ -1,50 +1,36 @@
-/*jshint es5:true*/
-
 'use strict';
 
 var rimraf = require('rimraf');
-var utils  = require('mout');
 var async  = require('async');
 var glob   = require('glob');
 var path   = require('path');
 
-var task = {
-    id          : 'rm',
-    author      : 'Indigo United',
-    name        : 'Remove',
-    description : 'Remove file or set of files.',
-    options: {
-        files: {
-            description: 'Which files should be removed. Accepts a filename and array of filenames. Also note that the filenames can be minimatch patterns.'
-        },
-        glob: {
-            description: 'The options to pass to glob (check https://npmjs.org/package/glob for details).',
-            default: null
-        }
-    },
-    tasks      :
-    [
-        {
-            task: function (opt, ctx, next) {
-                // TODO: optimize this with the expand function
-                var files = utils.lang.isArray(opt.files) ? opt.files : [opt.files];
+module.exports = function (task) {
+    task
+    .id('rm')
+    .name('Remove')
+    .description('Remove files and folders.')
+    .author('Indigo United')
 
-                async.forEach(files, function (file, next) {
-                    glob(file, opt.glob, function (err, matches) {
-                        if (err) {
-                            return next(err);
-                        }
+    .option('files', 'Which files should be removed. Accepts a filename and array of filenames. Also note that the filenames can be minimatch patterns.')
+    .option('glob', 'The options to pass to glob (check https://npmjs.org/package/glob for details).', null)
 
-                        async.forEach(matches, function (match, next) {
-                            match = path.normalize(match);
-                            ctx.log.debugln('Removing ' + match);
-                            rimraf(match, next);
-                        }, next);
-                    });
+    .do(function (opt, ctx, next) {
+        // TODO: optimize this with the expand function
+        var files = Array.isArray(opt.files) ? opt.files : [opt.files];
+
+        async.forEach(files, function (file, next) {
+            glob(file, opt.glob, function (err, matches) {
+                if (err) {
+                    return next(err);
+                }
+
+                async.forEach(matches, function (match, next) {
+                    match = path.normalize(match);
+                    ctx.log.debugln('Removing ' + match);
+                    rimraf(match, next);
                 }, next);
-            }
-        }
-    ]
+            });
+        }, next);
+    });
 };
-
-module.exports = task;
